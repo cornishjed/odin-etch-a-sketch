@@ -1,14 +1,19 @@
 #gridbox {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
+    margin: 20px;
 }
 
 .box {
-    border: 0.1px solid palegreen;
-    width: 10px;
-    height: 10px;
+flex-grow: 1;
+border: 1px solid green;;
+}
+
+.boxY {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-evenly;
 }
