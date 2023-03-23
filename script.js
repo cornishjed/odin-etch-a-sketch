@@ -33,7 +33,6 @@ function darkenSquare(boxX) {
   let currentBrightness = getPercentage(boxX.style.filter);
   let newBrightness = Number(currentBrightness) - 10;
   let style = `brightness(${newBrightness}%)`;
-  console.log(style);
   boxX.style.filter = `brightness(${newBrightness}%)`;
 }
 
