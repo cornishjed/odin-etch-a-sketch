@@ -17,6 +17,11 @@ function createGrid() {
         let randColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
           Math.random() * 256
         )}, ${Math.floor(Math.random() * 256)})`;
+
+        if (boxX.style.backgroundColor === "white")
+          boxX.style.filter = "brightness(100%)";
+        else darkenSquare(boxX);
+
         boxX.style.backgroundColor = randColor;
       });
       boxY.appendChild(boxX);
@@ -24,10 +29,25 @@ function createGrid() {
   }
 }
 
+function darkenSquare(boxX) {
+  let currentBrightness = getPercentage(boxX.style.filter);
+  let newBrightness = Number(currentBrightness) - 10;
+  let style = `brightness(${newBrightness}%)`;
+  console.log(style);
+  boxX.style.filter = `brightness(${newBrightness}%)`;
+}
+
+function getPercentage(str) {
+  var matches = str.match(/(\d+)/);
+  if (matches) {
+    return matches[0];
+  }
+}
+
 button1.addEventListener("click", function () {
   boxCount = prompt("Enter grid size");
   if (boxCount > 100) {
-    alert("Limit exceeded. Maximum allowed is 100.")
+    alert("Limit exceeded. Maximum allowed is 100.");
     boxCount = 100;
   }
   createGrid();
